@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="progress_bar_min_height_width">40dp</dimen>
+    <dimen name="photos_grid_stroke_width">2dp</dimen>
+    <dimen name="photo_grid_item_padding">3dp</dimen>
+</resources>
