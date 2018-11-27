@@ -1,7 +1,9 @@
-package com.example.mahmoudafifi.simplealbum;
+package com.example.mahmoudafifi.simplealbum.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.mahmoudafifi.simplealbum.R;
 
 public class MainActivity extends AppCompatActivity {
 
