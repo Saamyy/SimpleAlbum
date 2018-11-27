@@ -34,12 +34,6 @@ public class AlbumListFragment extends Fragment {
     private AlbumListAdapter albumListAdapter;
     private AlbumListViewModeContract albumListViewModeContract;
 
-    public AlbumListFragment() {
-        // Required empty public constructor
-
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -73,9 +67,6 @@ public class AlbumListFragment extends Fragment {
         albumListAdapter.notifyDataSetChanged();
     }
 
-    private void handleViewVisiblty(){
-
-    }
 
     private void showError(ErrorModel errorModel) {
         albumsRecyclerView.setVisibility(View.GONE);
