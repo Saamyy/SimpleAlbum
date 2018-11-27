@@ -5,8 +5,8 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.OnLifecycleEvent;
 
 import com.example.mahmoudafifi.simplealbum.model.Album;
-import com.example.mahmoudafifi.simplealbum.usecase.GetAllImagesUseCase;
-import com.example.mahmoudafifi.simplealbum.usecase.GetAllImagesUseCaseContract;
+import com.example.mahmoudafifi.simplealbum.usecase.allimages.GetAllImagesUseCase;
+import com.example.mahmoudafifi.simplealbum.usecase.allimages.GetAllImagesUseCaseContract;
 import com.example.mahmoudafifi.simplealbum.viewmodel.BaseViewModel;
 
 import java.util.List;

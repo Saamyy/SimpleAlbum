@@ -1,4 +1,4 @@
-package com.example.mahmoudafifi.simplealbum.usecase;
+package com.example.mahmoudafifi.simplealbum.usecase.allimages;
 
 import android.arch.lifecycle.MutableLiveData;
 
@@ -7,6 +7,7 @@ import com.example.mahmoudafifi.simplealbum.datasource.images.ImagesDataSourceCo
 import com.example.mahmoudafifi.simplealbum.model.Album;
 import com.example.mahmoudafifi.simplealbum.model.ErrorModel;
 import com.example.mahmoudafifi.simplealbum.model.Image;
+import com.example.mahmoudafifi.simplealbum.usecase.BaseUseCase;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -18,8 +19,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 
-public class GetAllImagesUseCase implements GetAllImagesUseCaseContract {
-    private ImagesDataSourceContract allImagesDataSourceContract;
+public class GetAllImagesUseCase extends BaseUseCase implements GetAllImagesUseCaseContract {
     private MutableLiveData<List<Album>> imageListMutableLiveData;
     private MutableLiveData<ErrorModel> errorMessage;
     private CompositeDisposable bag;
