@@ -1,4 +1,4 @@
-package com.example.mahmoudafifi.simplealbum.datasource.allimages;
+package com.example.mahmoudafifi.simplealbum.datasource.images;
 
 import com.example.mahmoudafifi.simplealbum.datasource.BaseDataSource;
 import com.example.mahmoudafifi.simplealbum.datasource.ErrorParser;
@@ -12,11 +12,23 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AllImagesDataSource extends BaseDataSource implements AllImagesDataSourceContract {
-    private Call<List<Image>> call = client.getAllImages();
+public class ImagesDataSource extends BaseDataSource implements ImagesDataSourceContract {
+    private Call<List<Image>> call;
+
 
     @Override
     public Observable<List<Image>> getAllImages() {
+        call = client.getAllImages();
+        return executeNetworkCall();
+    }
+
+    @Override
+    public Observable<List<Image>> getImagesByAlbumId(String albumId) {
+        call = client.getImagesByAlbumId(albumId);
+        return executeNetworkCall();
+    }
+
+    private Observable<List<Image>> executeNetworkCall() {
         return Observable.create(observer -> {
             call.clone().enqueue(new Callback<List<Image>>() {
                 @Override
@@ -28,7 +40,6 @@ public class AllImagesDataSource extends BaseDataSource implements AllImagesData
                         observer.onError(error);
                     }
                 }
-
                 @Override
                 public void onFailure(Call<List<Image>> call, Throwable t) {
                     ErrorModel error = new ErrorModel();
@@ -38,4 +49,6 @@ public class AllImagesDataSource extends BaseDataSource implements AllImagesData
             });
         });
     }
+
+
 }
