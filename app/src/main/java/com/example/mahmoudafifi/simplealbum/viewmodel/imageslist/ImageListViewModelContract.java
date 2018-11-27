@@ -12,5 +12,7 @@ public interface ImageListViewModelContract extends BaseViewModelContract {
 
     void getImagesList();
 
+    void setAlbumId(String albumId);
+
     MutableLiveData<List<Image>> getUpdatedImageList();
 }

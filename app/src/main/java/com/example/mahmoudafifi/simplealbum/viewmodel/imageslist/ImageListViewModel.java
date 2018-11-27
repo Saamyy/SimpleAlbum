@@ -12,14 +12,19 @@ import java.util.List;
 public class ImageListViewModel extends BaseViewModel implements ImageListViewModelContract {
     private MutableLiveData<List<Image>> imagesList;
     private GetAllImagedByIDUseCaseContract getAllImagedByIDUseCase;
+    private String albumId;
 
-    public ImageListViewModel(String albumId) {
+    public ImageListViewModel() {
         imagesList=new MutableLiveData<>();
-        getAllImagedByIDUseCase=new GetAllImagedByIDUseCase(imagesList,errorModel,albumId);
+    }
+    @Override
+    public void setAlbumId(String albumId) {
+        this.albumId = albumId;
     }
 
     @Override
     public void getImagesList() {
+        getAllImagedByIDUseCase=new GetAllImagedByIDUseCase(imagesList,errorModel,albumId);
         getAllImagedByIDUseCase.getAllImagesByID();
     }
 
