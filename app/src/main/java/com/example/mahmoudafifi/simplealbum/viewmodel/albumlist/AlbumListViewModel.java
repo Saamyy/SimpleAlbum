@@ -13,10 +13,11 @@ import java.util.List;
 
 public class AlbumListViewModel extends BaseViewModel implements AlbumListViewModeContract {
 
-    private MutableLiveData<List<Album>> imageListMutableLiveData = new MutableLiveData<>();
+    private MutableLiveData<List<Album>> imageListMutableLiveData;
     private GetAllImagesUseCaseContract getAllImagesUseCase;
 
     public AlbumListViewModel() {
+        imageListMutableLiveData = new MutableLiveData<>();
         getAllImagesUseCase = new GetAllImagesUseCase(imageListMutableLiveData, errorModel);
     }
 
