@@ -2,6 +2,7 @@ package com.example.mahmoudafifi.simplealbum.view.albumList;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.mahmoudafifi.simplealbum.R;
 import com.example.mahmoudafifi.simplealbum.model.Album;
+import com.example.mahmoudafifi.simplealbum.view.imagelist.ImagesListFragment;
 
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class AlbumListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         public AlbumViewHolder(View itemView) {
             super(itemView);
-            firstCard = itemView.findViewById(R.id.first_card);
+            firstCard = itemView.findViewById(R.id.firstCard);
             albumImageImage = itemView.findViewById(R.id.albumImageImage);
             albumId = itemView.findViewById(R.id.albumId);
             title = itemView.findViewById(R.id.title);
@@ -68,18 +70,23 @@ public class AlbumListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 .into(viewHolder.albumImageImage);
 
         viewHolder.title.setText(album.getTitle());
-        viewHolder.albumId.setText(String.format("%s%s%s", context.getResources().getString(R.string.album_id)," ", album.getAlbumId()));
-        viewHolder.ImagesCount.setText(String.format("%s%s%s", context.getResources().getString(R.string.count)," ", album.getImagesCount()));
+        viewHolder.albumId.setText(String.format("%s%s%s", context.getResources().getString(R.string.album_id), " ", album.getAlbumId()));
+        viewHolder.ImagesCount.setText(String.format("%s%s%s", context.getResources().getString(R.string.count), " ", album.getImagesCount()));
         viewHolder.firstCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavigateToSongDetails(album.getAlbumId());
+                NavigateToAlbumDetails(album.getAlbumId());
             }
         });
     }
 
-    private void NavigateToSongDetails(String albumId) {
-
+    private void NavigateToAlbumDetails(String albumId) {
+        ImagesListFragment songDetails = new ImagesListFragment();
+        songDetails.setAlbumID(albumId);
+        ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contentFrameLayout, songDetails)
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override

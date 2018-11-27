@@ -10,8 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:minHeight="40dp"
-        android:minWidth="40dp"
+        android:minHeight="@dimen/progress_bar_min_height_width"
+        android:minWidth="@dimen/progress_bar_min_height_width"
         android:visibility="visible"/>
 
     <android.support.v7.widget.RecyclerView
