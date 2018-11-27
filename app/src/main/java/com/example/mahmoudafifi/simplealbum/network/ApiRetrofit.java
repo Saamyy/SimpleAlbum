@@ -13,6 +13,7 @@ public interface ApiRetrofit {
 
     @GET("/photos")
     Call<List<Image>> getAllImages();
+
     @GET("/photos")
     Call<List<Image>> getImagesByAlbumId(@Query("albumId") String albumId);
 }
