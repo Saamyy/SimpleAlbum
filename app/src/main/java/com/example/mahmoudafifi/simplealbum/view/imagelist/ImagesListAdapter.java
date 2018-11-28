@@ -62,7 +62,7 @@ public class ImagesListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         viewHolder.photoGridImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavigateToImageDetails(image.getUrl());
+                NavigateToImageDetails(image.getThumbnailUrl());
             }
         });
     }
