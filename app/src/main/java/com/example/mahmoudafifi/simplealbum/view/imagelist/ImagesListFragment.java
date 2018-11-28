@@ -57,7 +57,8 @@ public class ImagesListFragment extends Fragment {
 
     private void getImagesByAlbum() {
         if (albumID != null) {
-            imageListViewModelContract = new ImageListViewModel();
+            getLifecycle().addObserver(imageListViewModelContract);
+//            imageListViewModelContract = new ImageListViewModel();
             imageListViewModelContract.setAlbumId(albumID);
             imageListViewModelContract.getImagesList();
         }

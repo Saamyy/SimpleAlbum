@@ -1,6 +1,8 @@
 package com.example.mahmoudafifi.simplealbum.viewmodel.imageslist;
 
+import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.OnLifecycleEvent;
 
 import com.example.mahmoudafifi.simplealbum.model.Image;
 import com.example.mahmoudafifi.simplealbum.usecase.imagesbyalbumid.GetAllImagedByIDUseCase;
@@ -31,5 +33,11 @@ public class ImageListViewModel extends BaseViewModel implements ImageListViewMo
     @Override
     public MutableLiveData<List<Image>> getUpdatedImageList() {
         return imagesList;
+    }
+
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    private void onDestroy() {
+        getAllImagedByIDUseCase.DisposeObservable();
     }
 }
