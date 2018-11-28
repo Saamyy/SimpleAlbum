@@ -2,6 +2,7 @@ package com.example.mahmoudafifi.simplealbum.view.imagelist;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.example.mahmoudafifi.simplealbum.R;
 import com.example.mahmoudafifi.simplealbum.model.Image;
+import com.example.mahmoudafifi.simplealbum.view.singleimage.SingleImageFragment;
 
 import java.util.List;
 
@@ -73,7 +75,12 @@ public class ImagesListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
     private void NavigateToImageDetails(String url) {
-
+        SingleImageFragment singleImageFragment = new SingleImageFragment();
+        singleImageFragment.setImageUrl(url);
+        ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contentFrameLayout, singleImageFragment)
+                .addToBackStack(null)
+                .commit();
     }
 
 
