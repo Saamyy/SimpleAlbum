@@ -84,6 +84,7 @@ public class AlbumListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         ImagesListFragment songDetails = new ImagesListFragment();
         songDetails.setAlbumID(albumId);
         ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                 .replace(R.id.contentFrameLayout, songDetails)
                 .addToBackStack(null)
                 .commit();

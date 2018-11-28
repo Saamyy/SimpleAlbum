@@ -78,6 +78,7 @@ public class ImagesListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         SingleImageFragment singleImageFragment = new SingleImageFragment();
         singleImageFragment.setImageUrl(url);
         ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                 .replace(R.id.contentFrameLayout, singleImageFragment)
                 .addToBackStack(null)
                 .commit();
